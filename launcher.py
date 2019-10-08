@@ -29,6 +29,8 @@ else:
         print(f"visiting seed #{count}\n")
         seed = seed.strip('\n')
         visiteds= crawl.crawl(seed)
+        if visiteds == False:
+            continue
         for visited in visiteds:
             print(f"just extracted {visited}\n")
             results.append(visited)
