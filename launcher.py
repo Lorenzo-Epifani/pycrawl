@@ -6,6 +6,7 @@ from refactor_urls import refactor_urls_file
 #TODO 
 #manage a timer that closes connections that doesn t respond
 #implement full depth search
+safe= False
 
 if len(sys.argv) == 1:
     print('\nUsage:\n\narg1:seed files\narg2(optional): --safe')
