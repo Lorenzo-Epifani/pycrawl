@@ -1,7 +1,7 @@
 # PyCrawl
 ## A python web crawler.
-To start a crawl, run   
+Too see usage, run
 ```
-python3 launcher.py pool.txt
+python3 launcher.py
 ```
 
