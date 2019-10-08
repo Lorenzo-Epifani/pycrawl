@@ -2,9 +2,14 @@ import re
 import sys
 import numpy
 
-def refactor_urls_file(filename):
+def refactor_urls_file(filename, full_depth):
+
+    if full_depth:
+        regex =r"https?://([^\./\"\n\s]+\.?)+/?(([^/\"\n\s])+/?)*"
+    else:
+        regex =r"https?://([^\./\"\n\s]+\.?)+"
+
     r_refactor=open(filename, 'r')
-    regex =r"https?://([^\./\"\n\s]+\.?)+/?(([^/\"\n\s])+/?)*"
     matches = [match.group() for match in re.finditer(regex, r_refactor.read(), re.MULTILINE)]
     matches = numpy.unique(matches)
     r_refactor.close
@@ -14,7 +19,9 @@ def refactor_urls_file(filename):
         w_refactor.write(line +"\n")
     w_refactor.close()
 
-def refactor_urls_list(listname):
+
+
+def limit_urls_list(listname):
     regex =r"https?://([^\./\"\n\s]+\.?)+"
     refactored_list = []
 
@@ -25,6 +32,23 @@ def refactor_urls_list(listname):
     print(f"#REFACTORED LIST{refactored_list}")
 
     return refactored_list
+
+def merge_tmp(tmp_list):
+    merged_list = []
+
+    for filename in tmp_list:
+        file_tmp = open(f"./tmp/{filename}", 'r')
+
+        for url in file_tmp:
+            url = url.strip('\n')
+            merged_list.append(url)
+        file_tmp.close()
+        merged_list = numpy.unique(merged_list)
+        merged_list = numpy.ndarray.tolist(merged_list)
+    return merged_list
+
+    
+
     
 
 
