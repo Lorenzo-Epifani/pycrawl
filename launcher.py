@@ -3,13 +3,21 @@ import sys
 import numpy
 from refactor_urls import refactor_urls_list
 from refactor_urls import refactor_urls_file
+import format
 #TODO 
 #manage a timer that closes connections that doesn t respond
 #implement full depth search
 safe= False
 
 if len(sys.argv) == 1:
-    print('\nUsage:\n\narg1:seed files\narg2(optional): --safe')
+    print('\nUsage\n\n')
+    print(f'{format.BOLD}python3 launcher.py{format.END} ' +
+          f'{format.UNDERLINE}seeds-filename.txt{format.END} ' +
+          f'{format.BOLD}[--safe]{format.END}')
+
+
+
+    
 else:
     SEEDS_FILENAME= sys.argv[1]
     for arg in sys.argv:
