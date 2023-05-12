@@ -1,6 +1,7 @@
 import re
 import sys
 import numpy
+from pathlib import Path
 
 def refactor_urls_file(filename, full_depth):
 
@@ -37,6 +38,7 @@ def merge_tmp(tmp_list):
     merged_list = []
 
     for filename in tmp_list:
+        Path("./tmp").mkdir(parents=True, exist_ok=True)
         file_tmp = open(f"./tmp/{filename}", 'r')
 
         for url in file_tmp:

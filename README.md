@@ -1,5 +1,5 @@
 # PyCrawl
-## A python web crawler.
+## A python web spider.
 To see usage, run    
 ```
 python3 launcher.py

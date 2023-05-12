@@ -18,7 +18,7 @@ if len(sys.argv) == 1:
     print(f'{format.BOLD}python3 launcher.py{format.END} ' +
           f'{format.UNDERLINE}seeds-filename.txt{format.END} ' +
           f'{format.BOLD}[--full_depth]{format.END}\n\n')
-    print('\n"--full_depth" is under development. A "tmp" folder must exist in the root folder of the script ')
+    print('\n"--full_depth" is under development.')
     
 else:
     SEEDS_FILENAME= sys.argv[1]

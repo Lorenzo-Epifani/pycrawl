@@ -7,7 +7,7 @@ import sys
 import re 
 import hashlib
 import format
-
+from pathlib import Path
 def crawl (url):
     try:
         response = requests.get(url)
@@ -26,6 +26,7 @@ def seed2temp(seed):
     if visiteds == False:
         return False
     else:
+        Path("./tmp").mkdir(parents=True, exist_ok=True)
         temp_file = open(f"./tmp/{temp_name}", 'a')
         print(f"{format.UNDERLINE}saving links in temp file ./tmp/{temp_name}{format.END}")
         temp_file.write("\n" + seed)
